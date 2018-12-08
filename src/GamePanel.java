@@ -24,7 +24,7 @@ void startGame() {
 @Override
 
 public void paintComponent(Graphics g){
-	 g.fillRect(10, 10, 100, 100);
+	
 }
 @Override
 public void keyTyped(KeyEvent e) {
