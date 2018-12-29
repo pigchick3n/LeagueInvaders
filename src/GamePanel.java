@@ -34,7 +34,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		if (currentState == MENU_STATE) {
 			updateMenuState();
 		} else if (currentState == GAME_STATE) {
-			updateGameState();
+			updateGameState(5);
 		} else if (currentState == END_STATE) {
 			updateEndState();
 		}
@@ -77,6 +77,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		} else if ((keycode == 10) && (currentState == END_STATE)) {
 			currentState = MENU_STATE;
 		}
+		
+		if((currentState == GAME_STATE)&&(keycode == 37)) {
+			updateGameState(1);
+		}else if((currentState == GAME_STATE)&&(keycode == 39)) {
+			updateGameState(2);
+		}else if((currentState == GAME_STATE)&&(keycode == 38)) {
+			updateGameState(3);
+		}else if((currentState == GAME_STATE)&&(keycode == 40)) {
+			updateGameState(4);
+		}
 	}
 
 	@Override
@@ -89,8 +99,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 
 	}
 
-	void updateGameState() {
-		
+	void updateGameState(int arrow) {
+		if(arrow == 1) {
+		rs.update(1);
+		}else if(arrow == 2) {
+		rs.update(2);	
+		}else if(arrow == 3) {
+		rs.update(3);	
+		}else if(arrow == 4) {
+		rs.update(4);	
+		}
 	}
 
 	void updateEndState() {
@@ -113,6 +131,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
+		rs.draw(g);
 	}
 
 	void drawEndState(Graphics g) {
