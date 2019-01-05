@@ -12,6 +12,7 @@ import javax.swing.Timer;
 public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	Timer t;
 	Rocketship rs;
+	ObjectManager om;
 	final int MENU_STATE = 0;
 	final int GAME_STATE = 1;
 	final int END_STATE = 2;
@@ -24,6 +25,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public GamePanel() {
 		t = new Timer(1000 / 60, this);
 		rs = new Rocketship(250,700,50,50);
+		om = new ObjectManager(rs);
 		titleFont = new Font("Arial", Font.PLAIN, 48);
 		enterFont = new Font("Arial", Font.PLAIN, 25);
 		instrucFont = new Font("Arial", Font.PLAIN, 25);
@@ -100,15 +102,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	void updateGameState(int arrow) {
-		if(arrow == 1) {
-		rs.update(1);
-		}else if(arrow == 2) {
-		rs.update(2);	
-		}else if(arrow == 3) {
-		rs.update(3);	
-		}else if(arrow == 4) {
-		rs.update(4);	
-		}
+		
+		om.update(arrow);
+		
 	}
 
 	void updateEndState() {
@@ -131,7 +127,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
-		rs.draw(g);
+		om.draw(g);
 	}
 
 	void drawEndState(Graphics g) {
