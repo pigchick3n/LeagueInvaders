@@ -89,6 +89,9 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		}else if((currentState == GAME_STATE)&&(keycode == 40)) {
 			updateGameState(4);
 		}
+		if((currentState == GAME_STATE)&&(keycode == 32)) {
+			om.addProjectile(new Projectile(rs.x+25, rs.y, 10, 10));
+	}
 	}
 
 	@Override
