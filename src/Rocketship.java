@@ -9,6 +9,7 @@ int speed;
 		speed = 20;
 	}
  void update(int arrow){
+	 super.update();
 if (arrow == 1) {
 	x-=speed;
 }else if (arrow == 2) {

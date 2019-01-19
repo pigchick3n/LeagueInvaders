@@ -107,7 +107,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void updateGameState(int arrow) {
 		
 		om.update(arrow);
-		
+		om.manageEnemies();
 	}
 
 	void updateEndState() {
