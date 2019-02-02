@@ -57,6 +57,8 @@ void purgeObjects() {
 		if (aliens.get(i).isAlive == false) {
 			aliens.remove(i);
 		}
+	
+	
 }
 }
 	void checkCollision(){
